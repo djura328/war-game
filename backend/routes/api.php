@@ -20,8 +20,8 @@ Route::get('/games', 'GameController@index');
 Route::post('/army', 'ArmyController@createArmy'); // "name": string ,"game_id": int, "strategy": [1, 2, 3]
 Route::get('/army/{id}', 'ArmyController@show');
 
-Route::post('/games/attack', 'GameControllerNew@attack'); //games: [1, 2,...]
-Route::post('/games/step', 'GameControllerNew@step'); //games: [1, 2,...]
+Route::post('/games/attack', 'GameController@attack'); //games: [1, 2,...]
+Route::post('/games/step', 'GameController@step'); //games: [1, 2,...]
 
-Route::get('/games/{game}/restart', 'GameController@restart');
+Route::post('/games//restart', 'GameController@restart'); //games: [1, 2,...]
 Route::get('/games/restart-all', 'GameController@resetAll');

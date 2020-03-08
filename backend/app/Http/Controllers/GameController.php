@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Game;
 use Illuminate\Http\Request;
+use App\Modules\War;
 
 class GameController extends Controller
 {
@@ -31,9 +32,37 @@ class GameController extends Controller
         return true;
     }
 
-    public function restart(Game $game){
-        $game->restart();
+    public function restart(Request $request){
+
+        foreach ($request->games as $game) {
+            $game->restart();
+        }
 
         return true;
+    }
+
+    public function step(Request $request){
+
+        $logs = [];
+        foreach ($request->games as $key => $id) {
+            $war[$key] = new War($id);
+            $log = $war[$key]->startStep();
+            $logs[] = $log;
+        }
+
+        return $logs;
+    }
+
+    public function attack(Request $request){
+
+        $logs = [];
+        foreach ($request->games as $key => $id) {
+            $war[$key] = new War($id);
+            $log = $war[$key]->startWar();
+            $logs[] = $log;
+        }
+
+        return $logs;
+
     }
 }
