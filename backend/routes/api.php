@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/games', 'GameController@createGame'); // "name": string
 Route::get('/games', 'GameController@index');
+
+Route::post('/army', 'ArmyController@createArmy'); // "name": string ,"game_id": int, "strategy": [1, 2, 3]
+Route::get('/army/{id}', 'ArmyController@show');
+
+Route::post('/games/attack', 'GameControllerNew@attack'); //games: [1, 2,...]
+Route::post('/games/step', 'GameControllerNew@step'); //games: [1, 2,...]
