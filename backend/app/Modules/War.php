@@ -4,7 +4,6 @@ namespace App\Modules;
 use App\Army as Army;
 use App\Game;
 use App\Modules\Log;
-use App\Modules\LogNew;
 
 class War{
 
@@ -53,12 +52,6 @@ class War{
 		$this->log->addLog(['Attacker' => $attacker, 'Attacked' => $attacked]);
 
 		$this->battle($attacker, $attacked);
-
-		//$removed_attacker = $attacker->removeDeadUnite();
-        //if($removed_attacker) $this->log->addLog(['Destroy Unit' => $attacker]);
-
-        //$removed_attacked = $attacked->removeDeadUnite();
-        //if($removed_attacked) $this->log->addLog(['Destroy Unit' => $attacked]);
 
 		$removed_army = Army::removeDeadArmies($this->game->id);
         if($removed_army) $this->log->addLog(['Destroy Army' => $removed_army->first()]);
