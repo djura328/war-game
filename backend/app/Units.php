@@ -14,4 +14,15 @@ class Units extends Model
     {
         return $this->belongsTo('App\Army');
     }
+
+    public function removeDeadUnite(){
+
+        $count = $this
+            ->where('health', '<=', 0)
+            ->where('status', '=', 1)
+            ->update(['status' => 0]);
+
+        if($count) return $this;
+        return false;
+    }
 }
