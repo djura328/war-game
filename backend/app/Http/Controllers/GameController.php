@@ -34,7 +34,8 @@ class GameController extends Controller
 
     public function restart(Request $request){
 
-        foreach ($request->games as $game) {
+        foreach ($request->games as $id) {
+            $game = Game::find($id);
             $game->restart();
         }
 
