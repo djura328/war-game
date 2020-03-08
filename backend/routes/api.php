@@ -22,3 +22,6 @@ Route::get('/army/{id}', 'ArmyController@show');
 
 Route::post('/games/attack', 'GameControllerNew@attack'); //games: [1, 2,...]
 Route::post('/games/step', 'GameControllerNew@step'); //games: [1, 2,...]
+
+Route::get('/games/{game}/restart', 'GameController@restart');
+Route::get('/games/restart-all', 'GameController@resetAll');

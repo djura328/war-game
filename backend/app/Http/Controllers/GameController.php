@@ -24,4 +24,16 @@ class GameController extends Controller
         return response()->json(['status' => 'failed'], 500);
 
     }
+
+    public function resetAll(){
+        Game::restartAll();
+
+        return true;
+    }
+
+    public function restart(Game $game){
+        $game->restart();
+
+        return true;
+    }
 }
