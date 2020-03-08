@@ -207,6 +207,7 @@
                         games: [this.$route.params.id]
                     }
                 ).then(res => {
+                    this.getArmy()
                     this.snackbar = true
                 })
             }
